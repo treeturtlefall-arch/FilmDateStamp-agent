@@ -7,3 +7,7 @@ DEST="${1:-$HOME/workspace/custom-skills/film-date-agent}"
 mkdir -p "$DEST"
 cp "$REPO_ROOT/skill/SKILL.md" "$DEST/SKILL.md"
 echo "installed: $DEST/SKILL.md"
+if [ -f "$REPO_ROOT/skill/skill.yaml" ]; then
+  cp "$REPO_ROOT/skill/skill.yaml" "$DEST/skill.yaml"
+  echo "installed: $DEST/skill.yaml"
+fi

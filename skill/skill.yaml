@@ -1,0 +1,5 @@
+name: "film_date_agent"
+title: "Film Date Agent"
+description: "Burn a film-style quartz date stamp into an image with optical exposure simulation; use when asked to add a date stamp, a disposable-camera look, or the photo's EXIF date."
+category: "Work and knowledge"
+include_in_prompt: true

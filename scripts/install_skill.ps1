@@ -15,3 +15,9 @@ if (-not (Test-Path $SourceFile)) {
 New-Item -ItemType Directory -Path $Destination -Force | Out-Null
 Copy-Item $SourceFile -Destination (Join-Path $Destination "SKILL.md") -Force
 Write-Host "スキル定義を配置しました: $(Join-Path $Destination 'SKILL.md')"
+
+$YamlFile = Join-Path $RepoRoot "skill\skill.yaml"
+if (Test-Path $YamlFile) {
+    Copy-Item $YamlFile -Destination (Join-Path $Destination "skill.yaml") -Force
+    Write-Host "スキル定義を配置しました: $(Join-Path $Destination 'skill.yaml')"
+}
