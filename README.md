@@ -1,5 +1,9 @@
 # film-date-agent
 
+<p align="center">
+  <img src="assets/hero_exposure_hybrid.webp" alt="FilmDateStamp Optical Burn-in Simulation" width="100%">
+</p>
+
 > **「写真にレトロな日付スタンプを入れて」と言えば、フィルム乳剤へのリアルな光学露光が焼き付く。**
 
 AIエージェントおよびCLIから利用するための本格フィルム日付スタンプ（クォーツデート）合成ツール。  
@@ -13,6 +17,10 @@ AIエージェントおよびCLIから利用するための本格フィルム日
 
 - 🎞️ **物理光学露光（Optical Burn-in）シミュレーション**  
   中心フィラメント芯の白飛び（ブリーチ）、波長別の分光感光飽和、多重スケールPSFハレーション拡散、LED素子の個体差や圧板浮きの有機的ゆらぎを完全再現。
+
+  <p align="center">
+    <img src="assets/hero_exposure_zoom.webp" alt="Optical Burn-in Detail" width="75%">
+  </p>
 - 📷 **写真のEXIF撮影日時（DateTimeOriginal）を自動反映**  
   写真ファイルのメタデータから当時の撮影日時を自動抽出し、正確な日付・時刻を焼き付けます。お気に入りでは初期設定でこの自動反映が有効で、EXIF の無い画像（AI 生成画像など）ではファイルの生成時刻、それも無ければ現在時刻が使われます。
 - 🎨 **時代・地域を象徴する12種類のスタイルプリセット**  
