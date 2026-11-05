@@ -1,0 +1,17 @@
+# AIエージェントの custom-skills へ SKILL.md を配置する。
+# 使い方: powershell -ExecutionPolicy Bypass -File scripts\install_skill.ps1 [配置先ディレクトリ]
+param(
+    [string]$Destination = "$HOME\workspace\custom-skills\film-date-agent"
+)
+
+$RepoRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$SourceFile = Join-Path $RepoRoot "skill\SKILL.md"
+
+if (-not (Test-Path $SourceFile)) {
+    Write-Error "SKILL.md が見つかりません: $SourceFile"
+    exit 1
+}
+
+New-Item -ItemType Directory -Path $Destination -Force | Out-Null
+Copy-Item $SourceFile -Destination (Join-Path $Destination "SKILL.md") -Force
+Write-Host "スキル定義を配置しました: $(Join-Path $Destination 'SKILL.md')"

@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# テスト生成物
+tests/data/*_stamped*
+tests/data/*_mask*
+tests/data/test_mask*
+tests/data/batch_in/
+tests/data/batch_out/

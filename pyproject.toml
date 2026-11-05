@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "film-date-agent"
+version = "0.1.0"
+description = "AI-agent friendly authentic film quartz date stamp CLI & translation layer over FilmDateStamp engine"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.24.0",
+    "Pillow>=9.5.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[project.scripts]
+film-date-agent = "film_date_agent.cli:main"
+film-date-stamp = "film_date_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+film_date_agent = [
+    "data/*.json",
+    "data/presets/*.json",
+]
+"film_date_agent.engine" = [
+    "*.py",
+    "fonts/*.ttf",
+    "fonts/*.txt",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
