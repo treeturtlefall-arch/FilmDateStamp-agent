@@ -20,7 +20,7 @@ from .errors import (
     AgentError,
 )
 from .exif import get_photo_datetime
-from .presets import ResolvedPreset, resolve_preset
+from .presets import FAVORITE_WORDS, ResolvedPreset, load_favorites, resolve_preset
 
 DATA_UPSTREAM = Path(__file__).resolve().parent / "data" / "upstream.json"
 
@@ -216,8 +216,15 @@ def apply(
     final_fmt = date_format or cfg_dict.get("date_format", "'YY MM DD")
     final_show_time = show_time if show_time is not None else cfg_dict.get("show_time", False)
 
+    # 日付の初期設定: お気に入り呼び出しで日付指定が無い場合、favorites.json の "date" を既定として使う
+    effective_date = date
+    if effective_date is None and at is None and (not preset or str(preset).strip().lower() in FAVORITE_WORDS):
+        fav_date = load_favorites().get("date")
+        if fav_date:
+            effective_date = str(fav_date)
+
     final_date_str, date_src = resolve_date_input(
-        date_arg=date,
+        date_arg=effective_date,
         at_arg=at,
         preset_cfg=cfg_dict,
         input_path=input_path,

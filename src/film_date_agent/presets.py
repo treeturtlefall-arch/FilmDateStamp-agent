@@ -129,6 +129,7 @@ def load_favorites() -> dict:
                 return {
                     "favorite": data.get("favorite") or "japanese-tokyo-90s",
                     "aliases": data.get("aliases") or {},
+                    "date": data.get("date"),
                     "_file": str(p),
                 }
             except Exception:
