@@ -49,17 +49,28 @@ AIエージェントおよびCLIから利用するための本格フィルム日
 
 ---
 
-## 📸 Before / After
+## 🎨 プリセットショーケース（Presets Gallery）
 
-既定のお気に入り `Japanese Snap (Disposable)`（写ルンです風・オレンジドット・時分併記）で焼き付けた例です。日付は初期設定のまま、画像の生成時刻を自動反映しています。文字を「貼る」のではなく、フィルム乳剤への光の露光として再現しているため、濡れた路面のような暗い背景の上でも発光とハレーションが自然に馴染みます。
+時代・地域・文化の象徴的な写真表現を再現したスタイルプリセットをワンタッチで呼び出せます。文字色、発光（Optical Burn-in）のハレーション強度、LED素子の形状やフォントがあらかじめ調律されています。
 
-**Before**
+<p align="center">
+  <img src="assets/presets_showcase_ja.png" alt="FilmDateStamp プリセットショーケース" width="100%">
+</p>
 
-![Before](docs/images/before.jpg)
-
-**After**（生成時刻 `'26 11 05 09:11` を焼き付け）
-
-![After](docs/images/after.jpg)
+| プリセット名 | 時代・世界観 | フォーマット & スタイル |
+|---|---|---|
+| `Japanese Tokyo 90s` | 90年代日本の街角・日常スナップ | `'YY MM DD` / 80s 7セグ -7° / アンバー |
+| `Japanese Snap (Disposable)` *(既定)* | 写ルンです風・時分併記 | `'YY MM DD HH:MM` / 5×7カプセルドット / オレンジ |
+| `American West Coast` | 90年代西海岸・ロードトリップ | `MM DD 'YY` / 80s 7セグ -7° / ゴールデン |
+| `American 80s (Red Quartz)` | 80年代モーテル・一眼レフ赤色LED | `MM DD 'YY` / 80s 7セグ直立 / クォーツレッド |
+| `European Classic (Paris/Berlin)` | 欧州の石畳・上品で控えめな露光 | `DD.MM.YY` / 80s 7セグ直立 / 控えめアンバー |
+| `Y2K Digicam (Early 2000s)` | 2000年代初頭の初期コンデジLCD | `'YY MM DD HH:MM` / 液晶等幅 / ゴールデン |
+| `Compact Fine Dot (Minimal)` | 90年代コンパクト機微細ドット | `'YY MM DD HH:MM` / 微細カプセルドット / オレンジ |
+| `Monochrome 70s (Canodate E)` | 70年代銀塩モノクロ印画紙 | `YY MM DD` / 機械式活字 / 印画紙白抜き |
+| `Vintage 70s Color (Datematic)` | 70年代ヴィンテージカラー | `'YY MM DD` / 機械式活字 / 電球色ウォームアイボリー |
+| `Cyber Telemetry (Sci-Fi)` | SF映画・HUD・監視カメラ | `YYYY-MM-DD HH:MM:SS` / サイバーグリーン |
+| `Heisei Retro Maru (Pop)` | 平成レトロ・丸文字プリクラ風 | `'YY MM DD` / 平成丸ゴシック / ネオンピンク |
+| `Manuscript Archival (Doc)` | 古文書・公文書アーカイブ | `YYYY/MM/DD` / クラシックセリフ / スミ黒 |
 
 ---
 
