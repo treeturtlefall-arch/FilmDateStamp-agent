@@ -8,7 +8,7 @@ def test_apply_dry_run(sample_image: Path):
     rep = apply(sample_image, dry_run=True)
     assert rep["ok"] is True
     assert rep["dry_run"] is True
-    assert "Japanese Tokyo 90s" in rep["preset_resolved"]
+    assert "Japanese Snap (Disposable)" in rep["preset_resolved"]
 
 
 def test_apply_render(sample_image: Path, tmp_path: Path):

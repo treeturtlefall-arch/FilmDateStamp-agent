@@ -24,8 +24,8 @@ def test_builtin_presets_count():
 
 def test_resolve_favorite():
     resolved = resolve_preset("favorite")
-    assert resolved.slug == "japanese-tokyo-90s"
-    assert resolved.name == "Japanese Tokyo 90s"
+    assert resolved.slug == "japanese-snap-disposable"
+    assert resolved.name == "Japanese Snap (Disposable)"
 
 
 def test_resolve_alias():

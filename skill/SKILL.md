@@ -6,7 +6,7 @@
 
 - コマンド: `film-date-agent`（または `python -m film_date_agent`）
 - 導入確認: `film-date-agent doctor` が全項目 `[OK]` であること
-- プリセット: `favorite`（お気に入り）が既定。実体は `favorites.json` が決める（既定は `Japanese Tokyo 90s`：90年代東京ストリートスナップ、アンバー色、-7°傾斜7セグ）。
+- プリセット: `favorite`（お気に入り）が既定。実体は `favorites.json` が決める（既定は `Japanese Snap (Disposable)`：写ルンです風、オレンジ発光、5x7カプセルドット、時分併記）。
 
 ## 未導入・コマンドが見つからない場合
 
