@@ -8,6 +8,11 @@
 - 導入確認: `film-date-agent doctor` が全項目 `[OK]` であること
 - プリセット: `favorite`（お気に入り）が既定。実体は `favorites.json` が決める（既定は `Japanese Tokyo 90s`：90年代東京ストリートスナップ、アンバー色、-7°傾斜7セグ）。
 
+## 未導入・コマンドが見つからない場合
+
+- `film-date-agent` が無い、または `doctor` が通らない場合は、まず導入を行う。リポジトリ（https://github.com/treeturtlefall-arch/FilmDateStamp-agent）をクローン済みなら `bash scripts/install_agent.sh` を実行し、続けて `bash scripts/install_skill.sh` でこのスキルを配置し直す。
+- 導入後に再度 `film-date-agent doctor --json` を実行し、`"ok": true` を確認してから本手順に戻ること。
+
 ## トリガー語（こんな指示があったら発動）
 
 - 「写真に日付スタンプを入れて」「フィルム風の日付を入れて」「レトロな日付を入れて」

@@ -31,10 +31,21 @@ AIエージェントおよびCLIから利用するための本格フィルム日
 AIエージェント（Muse / Claude / Gemini / Antigravity 等）は以下のステップで自律導入・検証してください。
 
 ### 1. インストール
+
+最短ルート（推奨）: クローンして一括導入スクリプトを実行する。venv 作成、パッケージ導入、`~/.local/bin` へのコマンド登録、doctor 検証までを自動で行う。
+
 ```bash
-git clone <このリポジトリのURL>
+git clone https://github.com/treeturtlefall-arch/FilmDateStamp-agent.git
 cd FilmDateStamp-agent
-pip install -e .    # または uv pip install -e .
+bash scripts/install_agent.sh
+```
+
+手動で行う場合は、先に venv を作ってからその中へ導入すること。システム Python への直接の `pip install` は PEP 668（externally-managed）で弾かれる環境が多い。
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install .        # 利用側は非 editable でよい。-e は開発者向け
+ln -sf "$PWD/.venv/bin/film-date-agent" ~/.local/bin/film-date-agent
 ```
 
 ### 2. スキル定義の配置
