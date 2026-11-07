@@ -227,6 +227,8 @@ bash scripts/install_skill.sh
 powershell -ExecutionPolicy Bypass -File scripts\install_skill.ps1
 ```
 
+The target can be changed by keyword: `install_skill.sh gemini` deploys to `~/.gemini/config/skills/film-date-agent` (Gemini CLI / Antigravity); an explicit path works too, as does `$FILM_DATE_SKILL_DEST`. With no argument it deploys to Muse (`~/workspace/custom-skills/film-date-agent`).
+
 ### 3. Verification (`doctor` Check)
 
 ```bash

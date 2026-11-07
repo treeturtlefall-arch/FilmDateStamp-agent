@@ -227,6 +227,8 @@ bash scripts/install_skill.sh
 powershell -ExecutionPolicy Bypass -File scripts\install_skill.ps1
 ```
 
+配置先はキーワードで変更できます: `install_skill.sh gemini` で `~/.gemini/config/skills/film-date-agent`（Gemini CLI / Antigravity 用）へ配置。任意のパスや環境変数 `FILM_DATE_SKILL_DEST` でも指定できます。無指定時は Muse 用（`~/workspace/custom-skills/film-date-agent`）に配置されます。
+
 ### 3. 診断（Doctor チェック）
 
 ```bash

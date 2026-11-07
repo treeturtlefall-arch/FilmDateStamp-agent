@@ -11,11 +11,11 @@ description: 画像にフィルムカメラのクォーツデート（日付ス�
 
 - コマンド: `film-date-agent`（または `python -m film_date_agent`）
 - 導入確認: `film-date-agent doctor` が全項目 `[OK]` であること
-- プリセット: `favorite`（お気に入り）が既定。実体は `favorites.json` が決める（既定は `Japanese Snap (Disposable)`：写ルンです風、オレンジ発光、5x7カプセルドット、時分併記）。
+- プリセット: `favorite`（お気に入り）が既定。実体は favorites の定義が決める（読み込み順: ユーザー設定 → 同梱 `data/favorites.json`。既定は `Japanese Snap (Disposable)`：写ルンです風、オレンジ発光、5x7カプセルドット、時分併記）。
 
 ## 未導入・コマンドが見つからない場合
 
-- `film-date-agent` が無い、または `doctor` が通らない場合は、まず導入を行う。リポジトリ（https://github.com/treeturtlefall-arch/FilmDateStamp-agent）をクローン済みなら `bash scripts/install_agent.sh` を実行し、続けて `bash scripts/install_skill.sh` でこのスキルを配置し直す。
+- `film-date-agent` が無い、または `doctor` が通らない場合は、まず導入を行う。リポジトリ（https://github.com/treeturtlefall-arch/FilmDateStamp-agent）をクローン済みなら `bash scripts/install_agent.sh` を実行し、続けて `bash scripts/install_skill.sh muse` でこのスキルを配置し直す。
 - 導入後に再度 `film-date-agent doctor --json` を実行し、`"ok": true` を確認してから本手順に戻ること。
 
 ## トリガー語（こんな指示があったら発動）
@@ -25,6 +25,14 @@ description: 画像にフィルムカメラのクォーツデート（日付ス�
 - 「撮影日時を焼き付けて」「EXIFの日付を入れて」
 - 「日付と時刻（時間）も入れて」
 - 画像を生成・加工した直後に「日付スタンプ押して」と言われた場合も対象
+
+## 類似ツールとの振り分け
+
+| 依頼の芯 | 使う道具 |
+|---|---|
+| フィルムの日付スタンプだけを焼きたい | **film-date-agent（これ）** |
+| インスタント写真の枠＋現像＋余白の手書き | instant-film-agent |
+| ビデオ風の REC 枠・ファインダー表示を付けたい | rec-frame-agent |
 
 ## 実行手順
 
@@ -46,6 +54,7 @@ description: 画像にフィルムカメラのクォーツデート（日付ス�
      - 「70年代」「クラシックカメラ」: `--preset monochrome-70s-canodate-e` または `--preset vintage-70s-color-datematic`（機械式彫刻活字）
      - 「サイバー」「SF映画」: `--preset cyber-telemetry-80s-sci-fi`（サイバーグリーンHUD）
      - 「平成レトロ」「プリクラ風」: `--preset y2k-pop-heisei-fancy`（ネオピンク丸文字）
+   - 複数枚やフォルダごと頼まれた場合は `film-date-agent batch <入力フォルダ> <出力フォルダ> --preset <名前> --json` を使う。
 
 3. **日付・時刻オプションの組み立て**:
    - **指定がない場合（既定）**: お気に入りでは `favorites.json` の `date` 設定（初期値は `photo`）に従い、EXIF 撮影日時 → ファイルの生成・更新時刻 → 現在時刻の順で自動決定される。お気に入り以外のプリセットでは、各プリセット既定の日付が使われる。
@@ -63,7 +72,8 @@ description: 画像にフィルムカメラのクォーツデート（日付ス�
      - 「適当な昔の日付で」「ランダムで」→ `--date random`
 
 4. **結果の報告**:
-   - `--json` の出力をパースし、`ok` が true であれば、`output` に格納された画像パスをユーザーに提示・報告する。
+   - `--json` の出力をパースし、`ok` が true であれば、`output` の画像を**必ず添付してユーザーに見せる**。パスの文字列だけの報告で終わらない。
+   - 渡す前に出力画像を一度開いて、スタンプの位置・にじみ具合・文字欠けが無いか目視で確認する。
    - 焼き付けた実際の日付文字列（`date_text`）および適用したスタイル（`preset_resolved`）を一言添える。
    - 例: *「90年代東京スナップ風（Japanese Tokyo 90s）で、撮影日時 `'03 10 02 17:49` を焼き付けました。」*
 
